@@ -50,7 +50,7 @@ var options = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'docs'),
     clean: true,
     publicPath: ASSET_PATH,
   },
@@ -156,7 +156,7 @@ var options = {
       patterns: [
         {
           from: './src/manifest.json',
-          to: path.join(__dirname, 'build'),
+          to: path.join(__dirname, 'docs'),
           force: true,
           transform: function (content, path) {
             // generates the manifest file using the package.json informations
@@ -175,7 +175,7 @@ var options = {
       patterns: [
         {
           from: './src/sections/Content/content.styles.css',
-          to: path.join(__dirname, 'build'),
+          to: path.join(__dirname, 'docs'),
           force: true,
         },
       ],
@@ -184,7 +184,7 @@ var options = {
       patterns: [
         {
           from: './src/assets/img/icon-128.png',
-          to: path.join(__dirname, 'build'),
+          to: path.join(__dirname, 'docs'),
           force: true,
         },
       ],
@@ -193,7 +193,7 @@ var options = {
       patterns: [
         {
           from: './src/assets/img/icon-34.png',
-          to: path.join(__dirname, 'build'),
+          to: path.join(__dirname, 'docs'),
           force: true,
         },
       ],

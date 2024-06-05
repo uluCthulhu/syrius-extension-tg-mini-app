@@ -17,5 +17,5 @@
     "experimentalDecorators": true,
   },
   "include": ["src"],
-  "exclude": ["build", "node_modules"]
+  "exclude": ["docs", "build", "node_modules"]
 }
