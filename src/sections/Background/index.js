@@ -7,7 +7,7 @@ const walletCredentials = {
 }
 const credentialsResetIntervalInSeconds = 3600;
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome?.runtime?.onMessage.addListener(function(request, sender, sendResponse) {
   // 
   // Outgoing
   // 
@@ -197,6 +197,6 @@ const resetCredentials = () => {
   walletCredentials.timestamp = new Date();
 }
 
-chrome.runtime.onSuspend.addListener(()=>{
+chrome?.runtime?.onSuspend.addListener(()=>{
   resetCredentials();
 });

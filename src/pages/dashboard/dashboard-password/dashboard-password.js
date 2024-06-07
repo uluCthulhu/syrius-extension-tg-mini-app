@@ -46,16 +46,16 @@ useEffect(() => {
     if(loadedWallets){
       setWalletNames(loadedWallets);
 
-      try{
-        const credentials = await getCredentialsFromBackgroundScript();
-        setSelectedWallet(credentials.name);
-        unlockWallet(credentials.password, credentials.name)
-      }
-      catch(err){
+      // try{
+      //   const credentials = await getCredentialsFromBackgroundScript();
+      //   setSelectedWallet(credentials.name);
+      //   unlockWallet(credentials.password, credentials.name)
+      // }
+      // catch(err){
         if(loadedWallets.length === 1){
           setSelectedWallet(loadedWallets[0] || "");
         }
-      }
+      // }
     }
   }
   fetchData();
@@ -69,7 +69,7 @@ useEffect(() => {
 
 const getCredentialsFromBackgroundScript = () => {
   return new Promise((resolve, reject) => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "internal.getCredentialsFromBackgroundScript", 
     },(credentials)=>{
       if(credentials !== false){
@@ -83,7 +83,7 @@ const getCredentialsFromBackgroundScript = () => {
 }
 
 const storeCredentialsToBackgroundScript = (pass, name) => {
-  chrome.runtime.sendMessage({
+  chrome?.runtime?.sendMessage({
     message: "internal.storeCredentialsToBackgroundScript", 
     data: {
       name: name,
@@ -103,7 +103,7 @@ const getAddressFromDecrypted = async(decrypted, addressIndex) => {
 }
 
 const sendChangeAddressEvent = async (newAddress) => {
-  chrome.runtime.sendMessage({
+  chrome?.runtime?.sendMessage({
     message: "znn.addressChanged", 
     data: {newAddress: newAddress}
   });
@@ -131,7 +131,7 @@ const unlockWallet = async (pass, name)=>{
       dispatch(loadAddressInfoForWalletFromStorage(name));
 
       setUnlockStatusLabel("Unlocked !");
-      storeCredentialsToBackgroundScript(pass, name);
+      // storeCredentialsToBackgroundScript(pass, name);
     
       if(integrationFlowState.currentIntegrationFlow !== ""){
         navigate("/site-integration");

@@ -70,7 +70,7 @@ const SiteIntegrationLayout = ()=>{
   
   const getAddress = async()=>{
     await getWalletInfo(walletCredentials.walletPassword, walletCredentials.walletName);    
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.grantedWalletRead", 
       data: {
         address: myAddressObject.current.toString(),
@@ -82,7 +82,7 @@ const SiteIntegrationLayout = ()=>{
   }
 
   const denyWalletRead = async () => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.deniedWalletRead", 
       error: "User denied wallet read",
       data: {}
@@ -138,7 +138,7 @@ const SiteIntegrationLayout = ()=>{
   
             const signedTransaction = await zenon.send(accountBlockTemplateSend, currentKeyPair, generatingPowCallback);
             setSignedHash(signedTransaction.hash.toString());      
-            chrome.runtime.sendMessage({
+            chrome?.runtime?.sendMessage({
               message: "znn.signedTransaction", 
               data: {
                 originalTransaction: integrationState.transactionData,
@@ -178,7 +178,7 @@ const SiteIntegrationLayout = ()=>{
   }
 
   const denySignTransaction = async () => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.deniedSignTransaction", 
       error: "User denied transaction signing",
       data: {}
@@ -234,7 +234,7 @@ const SiteIntegrationLayout = ()=>{
           console.log("signedTransaction", signedTransaction);
           setSignedHash(signedTransaction.hash.toString());
     
-          chrome.runtime.sendMessage({
+          chrome?.runtime?.sendMessage({
             message: "znn.accountBlockSent", 
             data: {
               originalTransaction: integrationState.accountBlockData,
@@ -270,7 +270,7 @@ const SiteIntegrationLayout = ()=>{
   }
 
   const denySendAccountBlock = async () => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.deniedSendAccountBlock", 
       error: "User denied sending account block",
       data: {}

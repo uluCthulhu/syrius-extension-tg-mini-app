@@ -22,7 +22,7 @@ const BurgerPopover = () => {
   }
 
   const clearCredentialsOfBackgroundScript = ()=>{
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "internal.clearCredentialsOfBackgroundScript",
     })  
   }

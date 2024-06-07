@@ -9,7 +9,7 @@ elt.innerHTML = `
 document.head.appendChild(elt);
 
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome?.runtime?.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.message === 'znn.grantedWalletRead') {
     window.postMessage({
       method: "znn.grantedWalletRead",
@@ -98,7 +98,7 @@ window.addEventListener("message", (event) => {
       switch(parsedEvent.method){
         case "znn.requestWalletAccess":{
           // console.log("Sending requestWalletAccess to extension(background.js) from content.js");
-          chrome.runtime.sendMessage({message: 'znn.requestWalletAccess'}, 
+          chrome?.runtime?.sendMessage({message: 'znn.requestWalletAccess'}, 
           function(message) { 
             // console.log("Received response at znn.requestWalletAccess", message);
           });
@@ -106,7 +106,7 @@ window.addEventListener("message", (event) => {
         }
         case "znn.sendTransactionToSigning": {
           // console.log("znn.sendTransactionToSigning", parsedEvent);
-          chrome.runtime.sendMessage({
+          chrome?.runtime?.sendMessage({
             message: 'znn.sendTransactionToSigning',
             params: parsedEvent.params
           }, 
@@ -117,7 +117,7 @@ window.addEventListener("message", (event) => {
         }
         case "znn.sendAccountBlockToSend": {
           // console.log("znn.sendAccountBlockToSend", parsedEvent);
-          chrome.runtime.sendMessage({
+          chrome?.runtime?.sendMessage({
             message: 'znn.sendAccountBlockToSend',
             params: parsedEvent.params
           }, 

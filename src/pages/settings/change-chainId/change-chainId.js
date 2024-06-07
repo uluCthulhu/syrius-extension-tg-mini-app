@@ -42,7 +42,7 @@ const ChangeChainId = () => {
   }, []);
 
   const sendChangeChainIdEvent = async (newChainId) => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.chainIdChanged", 
       data: {newChainId: newChainId}
     });

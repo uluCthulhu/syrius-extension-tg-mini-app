@@ -70,7 +70,7 @@ const ChangeAddress = () => {
   }
   
   const sendChangeAddressEvent = async (newAddress) => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.addressChanged", 
       data: {newAddress: newAddress}
     });

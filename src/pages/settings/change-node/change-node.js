@@ -37,7 +37,7 @@ const ChangeNode = () => {
   }, []);
 
   const sendChangeNodeEvent = async (newNode) => {
-    chrome.runtime.sendMessage({
+    chrome?.runtime?.sendMessage({
       message: "znn.nodeChanged", 
       data: {newNode: newNode}
     });
