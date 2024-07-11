@@ -16,6 +16,7 @@ import ChangeNode from '../../pages/settings/change-node/change-node';
 import ChangeChainId from '../../pages/settings/change-chainId/change-chainId';
 import ExportMnemonic from '../../pages/settings/export-mnemonic/export-mnemonic';
 import ChangeAddress from '../../pages/settings/change-address/change-address';
+import RewardsOverview from '../../pages/rewards-overview/rewards-overview';
 
 const TabsLayout = () => {
   const location = useLocation();
@@ -45,6 +46,9 @@ const TabsLayout = () => {
             <Route path="settings/export-mnemonic" element={<ExportMnemonic/>}/>
             <Route path="settings/change-node" element={<ChangeNode/>}/>
             <Route path="settings/change-chainId" element={<ChangeChainId/>}/>
+
+            <Route path="rewards" element={<RewardsOverview/>}/>
+
           </Routes>
         </AnimatePresence>
         <MenuTabs />

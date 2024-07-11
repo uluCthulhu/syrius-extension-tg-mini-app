@@ -41,6 +41,12 @@ const MenuTabs =  () => {
           <img alt="" className="tab-item-icon" src={require('./../../../assets/blocks.svg')} width='20px'></img>
           <span className="tab-item-text">Stake</span>
         </div>
+        <div className={`tab-item ${currentTab === 'rewards'? 'active' : ''}`} 
+         onClick={() => moveIndicator('rewards', 75)}>
+          <img alt="" className="tab-item-icon" src={require('./../../../assets/blocks.svg')} width='20px'></img>
+          <span className="tab-item-text">Rewards</span>
+        </div>
+
       </div>
     </div>
   );
